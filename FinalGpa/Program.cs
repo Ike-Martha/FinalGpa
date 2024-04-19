@@ -11,7 +11,7 @@ namespace Gpa
             string firstCourse  = "English 101";
             string secondCourse = "Algebra 101 ";
             string thirdCourse  = "Biology 101";
-            string fourthCourse = "ComputerScience 1";
+            string fourthCourse = "Computer Science 1";
             string fifthCourse  = "Psycology 101";
 
             //Create a variable to store the credit hour of each course
@@ -33,13 +33,7 @@ namespace Gpa
             int fourthCourseGrade = gradeB;
             int fifthCourseGrade = gradeA;
 
-            //Console.WriteLine("Courses\t\tCourseGrade\t\tCourseCredit\n");
-            //Console.WriteLine($"{firstCourse}\t\t{firstCourseGrade}\t\t{firstCourseCredit}\t");
-            //Console.WriteLine($"{secondCourse}\t\t{secondCourseGrade}\t\t{secondCourseCredit}\t");
-            //Console.WriteLine($"{thirdCourse}\t\t{thirdCourseGrade}\t\t{thirdCourseCredit}\t");
-            //Console.WriteLine($"{fourthCourse}\t\t{fourthCourseGrade}\t\t{fourthCourseCredit}\t");
-            //Console.WriteLine($"{fifthCourse}\t\t{fifthCourseGrade}\t\t{fifthCourseCredit}\t");
-            
+           
 
             //Calculate the sums of credit hours and grade points
             int totalCreditHours = 0;
@@ -58,17 +52,25 @@ namespace Gpa
             totalGradePoint += fourthCourseCredit * fourthCourseGrade;
             totalGradePoint += fifthCourseCredit * fifthCourseGrade;
 
-           // Console.WriteLine("TotalGradePoint\t\tTotalCreditHours\t\t");
-            Console.WriteLine($"{totalGradePoint}   {totalCreditHours}");
+            //format the decimal output
+            decimal gradePointAverage = (decimal) totalGradePoint / totalCreditHours;
 
+           // Console.WriteLine($"Final GPA: {gradePointAverage}");
 
-            Console.WriteLine("Courses\t\tCourseGrade\t\tCourseCredit\n");
-            Console.WriteLine($"{firstCourse}\t\t{firstCourseGrade}\t\t{firstCourseCredit}\t");
-            Console.WriteLine($"{secondCourse}\t\t{secondCourseGrade}\t\t{secondCourseCredit}\t");
-            Console.WriteLine($"{thirdCourse}\t\t{thirdCourseGrade}\t\t{thirdCourseCredit}\t");
+            //manipulate the decimal GPA value so that only three digits are displayed.
+            int leadingDigit = (int) gradePointAverage;
+            //To initialize a variable that will store the first two digits after the decimal
+            int firstDigit = (int) (gradePointAverage * 10) % 10;
+            int secondDigit = (int)(gradePointAverage * 100) % 10;
+
+            Console.WriteLine($"Student:   {studentName}\n");
+            Console.WriteLine("Courses\t\t\t\tCourseGrade\tCourseCredit\n");
+            Console.WriteLine($"{firstCourse}\t\t\t{firstCourseGrade}\t\t{firstCourseCredit}\t");
+            Console.WriteLine($"{secondCourse}\t\t\t{secondCourseGrade}\t\t{secondCourseCredit}\t");
+            Console.WriteLine($"{thirdCourse}\t\t\t{thirdCourseGrade}\t\t{thirdCourseCredit}\t");
             Console.WriteLine($"{fourthCourse}\t\t{fourthCourseGrade}\t\t{fourthCourseCredit}\t");
-            Console.WriteLine($"{fifthCourse}\t\t{fifthCourseGrade}\t\t{fifthCourseCredit}\t");
-
+            Console.WriteLine($"{fifthCourse}\t\t\t{fifthCourseGrade}\t\t{fifthCourseCredit}\t");
+            Console.WriteLine($"\nFinal GPA\t\t\t:  {leadingDigit}.{firstDigit}{secondDigit}");
         }
     }
 }
